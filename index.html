@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multimedia Denoising & Restoration | Group 02</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #2563eb;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    /* 頂部導覽列 */
+    nav {
+      background: var(--primary);
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    nav .brand { color: #fff; font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+    nav .links { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    nav .links a { color: #e2e8f0; text-decoration: none; font-size: 0.9rem; padding: 0.3rem 0.6rem; border-radius: 4px; }
+    nav .links a:hover, nav .links a.active { background: var(--secondary); color: #fff; }
+
+    /* 橫幅 Banner */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: #fff;
+      padding: 4rem 5%;
+      text-align: center;
+    }
+    header h1 { font-size: 2.2rem; margin-bottom: 0.8rem; }
+    header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+    /* 主要內容區 */
+    main { max-width: 1100px; margin: 2.5rem auto; padding: 0 5%; }
+    section { margin-bottom: 3rem; }
+    h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; border-left: 4px solid var(--secondary); padding-left: 0.8rem; }
+
+    /* 簡介與學習目標卡片 */
+    .info-box {
+      background: var(--card-bg);
+      padding: 1.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+    .info-box ul { margin-left: 1.5rem; margin-top: 0.8rem; }
+    .info-box li { margin-bottom: 0.5rem; }
+
+    /* 六大單元卡片網格 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.06); }
+    .card .tag { font-size: 0.8rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; margin-bottom: 0.4rem; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--text); }
+    .card p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .card a.btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: 500;
+    }
+    .card a.btn:hover { background: var(--primary); }
+
+    /* 組員分工表格 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    th, td { padding: 0.9rem 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+    th { background: #f1f5f9; color: var(--primary); font-weight: 600; }
+
+    /* 頁尾 */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #e2e8f0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部導覽列 -->
+  <nav>
+    <a href="index.html" class="brand">Multimedia Team 02</a>
+    <div class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="page1.html">1. Noise</a>
+      <a href="page2.html">2. Traditional</a>
+      <a href="page3.html">3. AI Restoration</a>
+      <a href="page4.html">4. Audio</a>
+      <a href="page5.html">5. Video</a>
+      <a href="page6.html">6. Evaluation</a>
+      <a href="resources.html">Resource Library</a>
+    </div>
+  </nav>
+
+  <!-- 橫幅 -->
+  <header>
+    <h1>Multimedia Denoising & Restoration</h1>
+    <p>A Student-Authored Learning Hub for Introduction to Multimedia Communications (Group 02)</p>
+  </header>
+
+  <main>
+    <!-- 專題簡介與學習目標 -->
+    <section>
+      <h2>Project Overview & Learning Objectives</h2>
+      <div class="info-box">
+        <p>Digital images, audio, and video frequently suffer from noise, blur, and compression artifacts during capture and transmission. This learning hub explores how multimedia degradation occurs and compares traditional signal processing filters with modern AI-based restoration models.</p>
+        <ul>
+          <li><strong>Identify</strong> common types of spatial and temporal noise across image, audio, and video signals.</li>
+          <li><strong>Compare</strong> classical filtering algorithms with deep learning restoration models in terms of detail retention and complexity.</li>
+          <li><strong>Evaluate</strong> restoration performance using objective metrics (PSNR, SSIM) alongside human perceptual quality.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 六大單元學習地圖 -->
+    <section>
+      <h2>Six-Section Learning Map</h2>
+      <div class="grid">
+        <div class="card">
+          <div>
+            <div class="tag">Section 01</div>
+            <h3>Multimedia Noise & Degradation</h3>
+            <p>Understand Gaussian, impulse, sensor, and audio noise, as well as blur and compression artifacts.</p>
+          </div>
+          <a href="page1.html" class="btn">Explore Section 1 &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="tag">Section 02</div>
+            <h3>Traditional Image Denoising</h3>
+            <p>Compare mean, Gaussian, median, bilateral, and non-local means filters on smoothing vs. edge preservation.</p>
+          </div>
+          <a href="page2.html" class="btn">Explore Section 2 &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="tag">Section 03</div>
+            <h3>AI-Based Image Restoration</h3>
+            <p>Explore CNN denoisers, learned priors, and differences among denoising, deblurring, and super-resolution.</p>
+          </div>
+          <a href="page3.html" class="btn">Explore Section 3 &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="tag">Section 04</div>
+            <h3>Audio Noise Reduction</h3>
+            <p>Learn spectral subtraction, Wiener filtering, noise gating, and time-frequency speech enhancement.</p>
+          </div>
+          <a href="page4.html" class="btn">Explore Section 4 &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="tag">Section 05</div>
+            <h3>Video Denoising & Restoration</h3>
+            <p>Examine temporal correlation, motion alignment, spatial-temporal processing, and flicker prevention.</p>
+          </div>
+          <a href="page5.html" class="btn">Explore Section 5 &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="tag">Section 06</div>
+            <h3>Restoration Quality & Applications</h3>
+            <p>Analyze MSE, PSNR, SSIM, perceptual metrics, metric limitations, and real-world restoration cases.</p>
+          </div>
+          <a href="page6.html" class="btn">Explore Section 6 &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 組員分工總覽 -->
+    <section>
+      <h2>Team Members & Contributions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Student ID</th>
+            <th>Assigned Section</th>
+            <th>Group Responsibilities</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Member 1 (待填寫)</td>
+            <td>112XXXXXX</td>
+            <td>1. Multimedia Noise & Degradation</td>
+            <td>Site Architecture & Homepage</td>
+          </tr>
+          <tr>
+            <td>Member 2 (待填寫)</td>
+            <td>112XXXXXX</td>
+            <td>2. Traditional Image Denoising</td>
+            <td>Visual Formatting & Layout</td>
+          </tr>
+          <tr>
+            <td>Member 3 (待填寫)</td>
+            <td>112XXXXXX</td>
+            <td>3. AI-Based Image Restoration</td>
+            <td>Resource Library Curation</td>
+          </tr>
+          <tr>
+            <td>Member 4 (待填寫)</td>
+            <td>112XXXXXX</td>
+            <td>4. Audio Noise Reduction</td>
+            <td>Internal Link Verification</td>
+          </tr>
+          <tr>
+            <td>Member 5 (待填寫)</td>
+            <td>112XXXXXX</td>
+            <td>5. Video Denoising & Restoration</td>
+            <td>Terminology & Proofreading</td>
+          </tr>
+          <tr>
+            <td>Member 6 (待填寫)</td>
+            <td>112XXXXXX</td>
+            <td>6. Restoration Quality & Applications</td>
+            <td>Presentation & Final Submission</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    Introduction to Multimedia Communications — Final Group Project | Group 02
+  </footer>
+
+</body>
+</html>
